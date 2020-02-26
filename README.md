@@ -11,3 +11,5 @@
 ![class diagram](diagrams/ClassDiagram.png)
 
 ## Libraries
+* node v10.16.3
+* Truffle v5.1.12 - a development framework for Ethereum
