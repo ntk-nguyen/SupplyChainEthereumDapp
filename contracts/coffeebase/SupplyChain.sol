@@ -12,7 +12,7 @@ contract SupplyChain is
     RetailerRole,
     ConsumerRole
 {
-    // Define 'owner'
+    // Define owner
     address owner;
 
     // Define a variable called 'upc' for Universal Product Code (UPC)
@@ -126,7 +126,7 @@ contract SupplyChain is
     // Define a modifier that checks if an item.state of a upc is ForSale
     modifier forSale(uint256 _upc) {
         require(
-            items[_upc].itemState == State.Processed,
+            items[_upc].itemState == State.ForSale,
             "Item needs to be in the State of ForSale"
         );
         _;
@@ -198,6 +198,7 @@ contract SupplyChain is
         items[_upc].sku = sku;
         items[_upc].upc = _upc;
         items[_upc].ownerID = _originFarmerID;
+        items[_upc].originFarmerID = _originFarmerID;
         items[_upc].originFarmName = _originFarmName;
         items[_upc].originFarmInformation = _originFarmInformation;
         items[_upc].originFarmLatitude = _originFarmLatitude;
@@ -205,19 +206,6 @@ contract SupplyChain is
         items[_upc].productID = sku + _upc;
         items[_upc].productNotes = _productNotes;
         items[_upc].itemState = defaultState;
-        // Item({
-        //     sku: sku,
-        //     upc: _upc,
-        //     ownerID: _originFarmerID,
-        //     originFarmerID: _originFarmerID,
-        //     originFarmName: _originFarmName,
-        //     originFarmInformation: _originFarmInformation,
-        //     originFarmLatitude: _originFarmLatitude,
-        //     originFarmLongitude: _originFarmLongitude,
-        //     productID: sku + _upc,
-        //     productNotes: _productNotes,
-        //     itemState: State.Harvested
-        // });
         // Increment sku
         sku = sku + 1;
         // Emit the appropriate event
