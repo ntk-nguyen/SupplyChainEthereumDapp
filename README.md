@@ -3,7 +3,11 @@
 ## Libraries
 I used the `Roles` library to provide add and remove functions to different access control contracts in the supply chain, `truffle-hd-wallet-provider` to sign transactions for addresses, and `truffle-assertions` to track events as `.watch()` syntax is deprecated in web3 v1.2.1.
 
+## IPFS
+IPFS was not used in this project.
+
 ## Versions
+* Program version number v1.0
 * node v10.16.3
 * truffle v5.1.12
 * truffle-hdwallet-provider v6.9.0
